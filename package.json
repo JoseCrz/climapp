@@ -9,6 +9,7 @@
   "author": "José Cuevas",
   "license": "ISC",
   "dependencies": {
+    "chalk": "^2.4.2",
     "express": "^4.16.4"
   }
 }
