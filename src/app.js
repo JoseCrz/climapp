@@ -1,18 +1,19 @@
+//Core Node Modules
+const path = require('path')
+
+//NPM modules
 const express = require('express')
 const chalk = require('chalk')
 
+
 const app = express()
+
+const publicDirectoryPath = path.join(__dirname, '../public')
+
+app.use(express.static(publicDirectoryPath))
 
 app.get('/', (request, response) => {
     response.send('Hello express!')
-})
-
-app.get('/help', (request, response) => {
-    response.send('Help page.')
-})
-
-app.get('/about', (request, response) => {
-    response.send('<h1>About page.</h1>')
 })
 
 app.get('/weather', (request, response) => {
