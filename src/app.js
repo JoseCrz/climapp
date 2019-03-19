@@ -12,11 +12,15 @@ app.get('/help', (request, response) => {
 })
 
 app.get('/about', (request, response) => {
-    response.send('About page.')
+    response.send('<h1>About page.</h1>')
 })
 
 app.get('/weather', (request, response) => {
-    response.send('Weather page.')
+    response.send({
+        location: 'Manchester, United Kingdom',
+        forecast: 'Clear throughout the day',
+        temperature: 16
+    })
 })
 
 app.listen(3000, () => {
