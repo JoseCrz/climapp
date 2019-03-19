@@ -7,12 +7,22 @@ const chalk = require('chalk')
 
 
 const app = express()
-
+//*------------------CONFIGURATION------------------*
+//Paths for Express config
 const publicDirectoryPath = path.join(__dirname, '../public')
+const viewsPath = path.join(__dirname, '../templates')
 
+//Handlebars config
 app.set('view engine', 'hbs')
+app.set('views', viewsPath)
+
+//Setup static directory to serve
 app.use(express.static(publicDirectoryPath))
 
+//*------------------/CONFIGURATION------------------*
+
+
+//Routes
 app.get('/', (request, response) => {
     response.render('index', {
         title: 'Weather App'
