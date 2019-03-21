@@ -1,1 +1,15 @@
-console.log('Hello from a static page!')
+console.log('Hello client side JavaScript')
+
+fetch('http://localhost:3000/weather?location=!')
+.then(response => {
+    
+    response.json()
+    .then(data => {
+        if (data.error) {
+            console.log(data.error)
+
+        } else {
+            console.log(data)
+        }
+    })
+})
