@@ -20,6 +20,10 @@ header a {
     text-decoration: none;
 }
 
+header a:hover {
+    color: #03a9f4;
+}
+
 footer {
     color: #888888;
     border-top: 1px solid #eeeeee;
@@ -32,6 +36,31 @@ h1 {
     margin-bottom: 16px;
 }
 
+input {
+    border: 1px solid #cccccc;
+    padding: 8px;
+    margin: 0;
+    width: auto;
+}
+
+input:focus {
+    outline: none;
+}
+
+button {
+    cursor: pointer;
+    border: 1px solid #888888;
+    background: #888888;
+    color: white;
+    padding: 8px;
+    border-radius: 3px;
+    margin: 0;
+}
+
+button:hover {
+    background: #03a9f4;
+    border: 1px solid #03a9f4;
+}
 .main-content {
     flex-grow: 1;
 }
