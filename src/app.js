@@ -6,6 +6,9 @@ const express = require('express')
 const chalk = require('chalk')
 const hbs = require('hbs')
 
+//local modules
+const geocode = require('./utils/geocode')
+const forecast = require('./utils/forecast')
 
 const app = express()
 //*------------------CONFIGURATION------------------*
@@ -49,10 +52,35 @@ app.get('/help', (request, response) => {
 })
 
 app.get('/weather', (request, response) => {
-    response.send({
-        location: 'Manchester, United Kingdom',
-        forecast: 'Clear throughout the day',
-        temperature: 16
+    
+    if (!request.query.location) {
+        return response.send({
+            error: 'A location must be provided'
+        })
+    }
+    const location = request.query.location
+
+    geocode(location, (error, {latitude, longitude, location} = {}) => {
+        if (error) {
+            return response.send({
+                error
+            })
+        }
+
+        forecast(latitude, longitude, 'si', (error, forecastData) => {
+            if (error) {
+                return response.send({
+                    error
+                })
+            }
+            
+            response.send({
+                location,
+                summary: forecastData.summary,
+                temperature: forecastData.temperature,
+                rainChance: forecastData.rainChance
+            })
+        })
     })
 })
 
