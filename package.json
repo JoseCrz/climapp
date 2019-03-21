@@ -4,7 +4,7 @@
   "description": "basic weather app server",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node src/app.js"
   },
   "author": "José Cuevas",
   "license": "ISC",
