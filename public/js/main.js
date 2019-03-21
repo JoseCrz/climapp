@@ -1,6 +1,6 @@
 console.log('Hello client side JavaScript')
 
-fetch('http://localhost:3000/weather?location=!')
+fetch('http://localhost:3000/weather?location=manchester')
 .then(response => {
     
     response.json()
